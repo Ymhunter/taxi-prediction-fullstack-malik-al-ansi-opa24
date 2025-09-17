@@ -8,22 +8,35 @@ This project is a fullstack machine learning application that predicts taxi fare
 
 📱 Frontend (Android App) – lets users input trip details and get fare predictions.
 
-📂 Project Structure
 taxi-prediction-fullstack/
-│── backend/ (FastAPI API)
-│   ├── src/taxipred/backend/api.py      # FastAPI app
-│   ├── src/taxipred/backend/data_processing.py
-│   ├── src/taxipred/utils/constants.py  # Paths & configs
-│   ├── model.pkl                        # Trained RandomForest model
-│   └── taxi_trip_pricing.csv            # Training dataset
 │
-│── app/ (Android frontend)
-│   ├── MainActivity.kt                  # Main UI logic
-│   ├── Utilities/ApiClient.kt           # Retrofit client
-│   ├── Utilities/TaxiApi.kt             # API interface
-│   ├── Commen/InputData.kt              # Request model
-│   ├── Commen/PredictionResponse.kt     # Response model
-│   └── res/layout/activity_main.xml     # UI layout
+├── backend/                     # FastAPI + ML model
+│   ├── src/taxipred/
+│   │   ├── backend/
+│   │   │   ├── api.py           # FastAPI routes (/taxi, /predict)
+│   │   │   ├── data_processing.py
+│   │   ├── utils/
+│   │   │   └── constants.py     # Paths & configs
+│   │
+│   ├── model.pkl                # Trained RandomForest model
+│   ├── taxi_trip_pricing.csv    # Training dataset
+│   └── requirements.txt         # Backend dependencies
+│
+├── app/                         # Android frontend
+│   ├── src/main/java/com/example/taxi_prediction_android/
+│   │   ├── MainActivity.kt
+│   │   ├── Utilities/
+│   │   │   ├── ApiClient.kt     # Retrofit setup
+│   │   │   └── TaxiApi.kt       # API interface
+│   │   ├── Commen/
+│   │   │   ├── InputData.kt     # Request model
+│   │   │   ├── PredictionResponse.kt # Response model
+│   │   │   └── TaxiTrip.kt      # Dataset model
+│   │
+│   ├── res/layout/
+│   │   └── activity_main.xml    # Android UI layout
+│   ├── build.gradle.kts         # App-level Gradle config
+│   └── settings.gradle.kts      # Project Gradle config
 │
 └── README.md
 
